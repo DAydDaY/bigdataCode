@@ -20,7 +20,12 @@ export default {
   mounted () {
     this.initChart()
     this.getData()
-    window.addEventListener('resize',)
+    window.addEventListener('resize', this.screenAdapter)
+    this.screenAdapter()
+  },
+  destroyed () {
+    clearInterval(this.timeId)
+    window.removeEventListener('resize', this.screenAdapter)
   },
   methods: {
     // 初始化echarts
@@ -76,14 +81,6 @@ export default {
             type: 'shadow'
           }
         },
-        title: {
-          text: '▍企业优秀驾驶员排名TOP10',
-          textstyle: {
-            color: 'blue'
-          },
-          left: 20,
-          top: 20
-        },
         legend: {
           data: ['安全指标', '经济指标']
         },
@@ -120,6 +117,35 @@ export default {
         ]
       }
       this.chartInstance.setOption(dataOption)
+    },
+    screenAdapter () {
+      // this.$refs.drivertop_ref.offsetWidth
+      const titleFontSize = this.$refs.drivertop_ref.offsetWidth / 100 * 3.6
+      console.log(titleFontSize)
+      const adapterOption = {
+        tooltip: {
+          axisPointer: {
+            lineStyle: {
+              width: titleFontSize
+            }
+          }
+        },
+        title: {
+          textStyle: {
+            fontSize: titleFontSize * 0.5
+          }
+        },
+        series: [
+          {
+            barWidth: titleFontSize * 1.7
+          },
+          {
+            barWidth: titleFontSize * 1.7
+          }
+        ]
+      }
+      this.chartInstance.setOption(adapterOption)
+      this.chartInstance.resize()
     }
   }
 }
