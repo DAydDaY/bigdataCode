@@ -1,15 +1,15 @@
-// /drivertoppage
+// /dangertop
 <template>
   <div class="com-page">
-    <drivertop></drivertop>
+    <dangertop></dangertop>
   </div>
 </template>
 
 <script>
-import driverTop from '@/components/driverTop'
+import DangerTop from '@/components/DangerTop'
 export default {
   components: {
-    drivertop: driverTop
+    dangertop: DangerTop
   }
 }
 </script>

@@ -1,13 +1,9 @@
-// /drivertop
-<!--
-实现数据降序排列并且显示前10个数据，因为不知道后端数据是需要请求还是直接推送
-所以直接给定了数据做一个可视化效果先
--->
 <template>
   <div class="com-container">
     <div class="com-chart"
-         ref="drivertop_ref"></div>
+         ref="dangertop_ref"></div>
   </div>
+
 </template>
 
 <script>
@@ -30,11 +26,11 @@ export default {
   methods: {
     // 初始化echarts
     initChart () {
-      this.chartInstance = this.$echarts.init(this.$refs.drivertop_ref, 'chalk')
+      this.chartInstance = this.$echarts.init(this.$refs.dangertop_ref, 'chalk')
       // 图表初始化
       const initOption = {
         title: {
-          text: '▍企业优秀驾驶员排名TOP10',
+          text: '▍企业危险驾驶员排名TOP10',
           left: 20,
           top: 20
         },
@@ -120,7 +116,7 @@ export default {
     },
     screenAdapter () {
       // this.$refs.drivertop_ref.offsetWidth
-      const titleFontSize = this.$refs.drivertop_ref.offsetWidth / 100 * 3.6
+      const titleFontSize = this.$refs.dangertop_ref.offsetWidth / 100 * 3.6
       console.log(titleFontSize)
       const adapterOption = {
         tooltip: {

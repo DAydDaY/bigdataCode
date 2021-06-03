@@ -1,14 +1,24 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import driverTopPage from '@/views/driverTopPage'
-
+import KindTopPage from '@/views/KindTopPage'
+import DangerTopPage from '@/views/DangerTopPage'
+import AlarmCountPage from '@/views/AlarmCountPage'
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/drivertoppage',
-    component: driverTopPage
+    path: '/kindtop',
+    component: KindTopPage
+  },
+  {
+    path: '/dangertop',
+    component: DangerTopPage
+  },
+  {
+    path: '/alarm',
+    component: AlarmCountPage
   }
+
 ]
 
 const router = new VueRouter({
