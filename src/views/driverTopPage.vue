@@ -1,7 +1,7 @@
 // /drivertoppage
 <template>
-  <div>
-      <drivertop></drivertop>
+  <div class="com-page">
+    <drivertop></drivertop>
   </div>
 </template>
 

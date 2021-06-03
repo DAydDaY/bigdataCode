@@ -20,6 +20,7 @@ export default {
   mounted () {
     this.initChart()
     this.getData()
+    window.addEventListener('resize',)
   },
   methods: {
     // 初始化echarts
@@ -27,17 +28,8 @@ export default {
       this.chartInstance = this.$echarts.init(this.$refs.drivertop_ref, 'chalk')
       // 图表初始化
       const initOption = {
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
         title: {
           text: '▍企业优秀驾驶员排名TOP10',
-          textstyle: {
-            color: 'blue'
-          },
           left: 20,
           top: 20
         },
@@ -77,7 +69,7 @@ export default {
       this.updateChat()
     },
     updateChat () {
-      const option = {
+      const dataOption = {
         tooltip: {
           trigger: 'axis',
           axisPointer: {
@@ -87,7 +79,6 @@ export default {
         title: {
           text: '▍企业优秀驾驶员排名TOP10',
           textstyle: {
-            fontsize: 64,
             color: 'blue'
           },
           left: 20,
@@ -128,7 +119,7 @@ export default {
           }
         ]
       }
-      this.chartInstance.setOption(option)
+      this.chartInstance.setOption(dataOption)
     }
   }
 }
