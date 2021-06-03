@@ -4,9 +4,18 @@ import KindTopPage from '@/views/KindTopPage'
 import DangerTopPage from '@/views/DangerTopPage'
 import AlarmCountPage from '@/views/AlarmCountPage'
 import SurveyPage from '@/views/SurveyPage'
+import ScreenPage from '@/views/ScreenPage'
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    redirect: '/home'
+  },
+  {
+    path: '/home',
+    component: ScreenPage
+  },
   {
     path: '/kindtop',
     component: KindTopPage
