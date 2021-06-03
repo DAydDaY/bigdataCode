@@ -33,13 +33,18 @@ export default {
       this.chartInstance = this.$echarts.init(this.$refs.alarmcount_ref, 'chalk')
       // 图表初始化
       const initOption = {
-        title: {
+        title: [{
           text: '▍报警类型统计',
           left: 20,
           top: 20
         },
+        {
+          text: '统计(位置需要自适应）',
+          left: 200,
+          top: 20
+        }],
         legend: {
-          data: ['安全指标', '经济指标']
+          data: ['疲劳驾驶', '超速行驶', '急加速', '急减速', '急转弯', '超经济区运行', '怠速空调', '过长怠速', '空挡滑行', '']
         },
         xAxis: {
           type: 'category',
@@ -51,17 +56,26 @@ export default {
         series: [
           {
             realtimeSort: true,
-            name: '安全指标',
-            type: 'bar',
-            stack: '指标',
+            name: 'all',
+            type: 'pie',
+            stack: '类型',
             emphasis: {
               focus: 'series'
             }
           },
           {
-            name: '经济指标',
+            realtimeSort: true,
+            name: '疲劳驾驶',
             type: 'bar',
-            stack: '指标',
+            stack: '类型',
+            emphasis: {
+              focus: 'series'
+            }
+          },
+          {
+            name: '超速行驶',
+            type: 'bar',
+            stack: '类型',
             emphasis: {
               focus: 'series'
             }
@@ -82,11 +96,11 @@ export default {
           }
         },
         legend: {
-          data: ['安全指标', '经济指标']
+          data: ['疲劳驾驶', '超速行驶', '急加速', '急减速', '急转弯', '超经济区运行', '怠速空调', '过长怠速', '空挡滑行', '大油门']
         },
         xAxis: {
           type: 'category',
-          data: ['小红', '小刚', '小明', '小陈', '小李', '小许', '小金', '小赵'],
+          data: [],
           max: 10
         },
         yAxis: {
@@ -94,24 +108,9 @@ export default {
         },
         series: [
           {
-            realtimeSort: true,
-            name: '安全指标',
-            type: 'bar',
-            barWidth: 70,
-            stack: '指标',
-            emphasis: {
-              focus: 'series'
-            },
             data: [500, 300, 166, 234, 452, 345, 123, 236]
           },
           {
-            name: '经济指标',
-            type: 'bar',
-            barWidth: 70,
-            stack: '指标',
-            emphasis: {
-              focus: 'series'
-            },
             data: [50, 30, 16, 34, 52, 45, 23, 36]
           }
         ]

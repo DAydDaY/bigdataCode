@@ -1,7 +1,7 @@
 <template>
   <div class="com-container">
     <div class="com-chart"
-         ref="dangertop_ref"></div>
+         ref="survey_ref"></div>
   </div>
 
 </template>
@@ -26,42 +26,44 @@ export default {
   methods: {
     // 初始化echarts
     initChart () {
-      this.chartInstance = this.$echarts.init(this.$refs.dangertop_ref, 'chalk')
+      this.chartInstance = this.$echarts.init(this.$refs.survey_ref, 'chalk')
       // 图表初始化
       const initOption = {
         title: {
-          text: '▍企业危险驾驶员排名TOP10',
+          text: '▍企业概况(图例出不来）',
           left: 20,
           top: 20
         },
         legend: {
-          data: ['安全指标', '经济指标']
+          data: ['当前企业', '平均值']
         },
-        xAxis: {
-          type: 'category',
-          max: 10,
-          inverse: 'ture'
-        },
-        yAxis: {
-          type: 'value'
+        radar: {
+          // shape: 'circle',
+          indicator: [
+            { name: '疲劳驾驶' },
+            { name: '超速行驶' },
+            { name: '急加速' },
+            { name: '急减速' },
+            { name: '急转弯' },
+            { name: '超经济区运行' },
+            { name: '怠速空调' },
+            { name: '过长怠速' },
+            { name: '空挡滑行' },
+            { name: '大油门' }
+
+          ]
         },
         series: [
           {
-            realtimeSort: true,
-            name: '安全指标',
-            type: 'bar',
-            stack: '指标',
-            emphasis: {
-              focus: 'series'
-            }
-          },
-          {
-            name: '经济指标',
-            type: 'bar',
-            stack: '指标',
-            emphasis: {
-              focus: 'series'
-            }
+            type: 'radar',
+            data: [
+              {
+                name: '当前企业'
+              },
+              {
+                name: '平均值'
+              }
+            ]
           }
         ]
       }
@@ -72,16 +74,20 @@ export default {
     },
     updateChat () {
       const dataOption = {
-
-        xAxis: {
-          data: ['小红', '小刚', '小明', '小陈', '小李', '小许', '小金', '小赵', '小王', '小芭比', 'chen']
+        legend: {
+          data: ['当前企业', '平均值']
         },
         series: [
           {
-            data: [55, 60, 16, 34, 42, 34, 12, 26, 46, 10, 73]
-          },
-          {
-            data: [340, 130, 123, 334, 233, 175, 289, 312, 123, 89, 243]
+            type: 'radar',
+            data: [
+              {
+                value: [123, 234, 457, 345, 234, 712, 123, 623, 675, 234]
+              },
+              {
+                value: [123, 712, 123, 623, 675, 234, 923, 276, 123, 787]
+              }
+            ]
           }
         ]
       }
@@ -89,7 +95,7 @@ export default {
     },
     screenAdapter () {
       // this.$refs.drivertop_ref.offsetWidth
-      const titleFontSize = this.$refs.dangertop_ref.offsetWidth / 100 * 3.6
+      const titleFontSize = this.$refs.survey_ref.offsetWidth / 100 * 3.6
       console.log(titleFontSize)
       const adapterOption = {
         tooltip: {

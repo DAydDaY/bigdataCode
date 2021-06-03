@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import KindTopPage from '@/views/KindTopPage'
 import DangerTopPage from '@/views/DangerTopPage'
 import AlarmCountPage from '@/views/AlarmCountPage'
+import SurveyPage from '@/views/SurveyPage'
 Vue.use(VueRouter)
 
 const routes = [
@@ -17,6 +18,10 @@ const routes = [
   {
     path: '/alarm',
     component: AlarmCountPage
+  },
+  {
+    path: '/survey',
+    component: SurveyPage
   }
 
 ]

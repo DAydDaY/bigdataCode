@@ -86,7 +86,7 @@ export default {
         },
         xAxis: {
           type: 'category',
-          data: ['小红', '小刚', '小明', '小陈', '小李', '小许', '小金', '小赵'],
+          data: ['小红', '小刚', '小明', '小陈', '小李', '小许', '小金', '小赵', '小赵', '小王', '小芭比', 'chen'],
           max: 10
         },
         yAxis: {
@@ -94,25 +94,10 @@ export default {
         },
         series: [
           {
-            realtimeSort: true,
-            name: '安全指标',
-            type: 'bar',
-            barWidth: 70,
-            stack: '指标',
-            emphasis: {
-              focus: 'series'
-            },
-            data: [500, 300, 166, 234, 452, 345, 123, 236]
+            data: [500, 300, 166, 234, 452, 345, 123, 236, 312, 123, 89, 243]
           },
           {
-            name: '经济指标',
-            type: 'bar',
-            barWidth: 70,
-            stack: '指标',
-            emphasis: {
-              focus: 'series'
-            },
-            data: [50, 30, 16, 34, 52, 45, 23, 36]
+            data: [50, 30, 16, 34, 52, 45, 23, 36, 26, 46, 10, 73]
           }
         ]
       }
